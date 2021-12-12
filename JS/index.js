@@ -1,5 +1,5 @@
-let urlImg = "http://localhost:3000/api/v1/products";
-let urlCategory = "http://localhost:3000/api/v1/categories";
+let urlImg = "https://bsale-test1.herokuapp.com/api/v1/products";
+let urlCategory = "https://bsale-test1.herokuapp.com/api/v1/categories";
 
 const category = document.querySelector(".select-category");
 const search = document.querySelector(".search");
@@ -76,7 +76,7 @@ search.addEventListener("keyup", async (e) => {
 
   try {
     const response = await fetch(
-      `http://localhost:3000/api/v1/products/search?term=${e.target.value}`
+      `https://bsale-test1.herokuapp.com/api/v1/products/search?term=${e.target.value}`
     );
     const data = await response.json();
 
@@ -92,7 +92,7 @@ search.addEventListener("keyup", async (e) => {
 orderBy.addEventListener("change", async (e) => {
   try {
     const response = await fetch(
-      `http://localhost:3000/api/v1/products?${
+      `https://bsale-test1.herokuapp.com/api/v1/products?${
         e.target.value === "1"
           ? "desc"
           : e.target.value === "2"
