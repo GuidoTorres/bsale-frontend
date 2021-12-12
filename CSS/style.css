@@ -23,6 +23,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center∫;
+  padding: 25px 30px;
 }
 
 .left {
@@ -36,19 +37,20 @@ body {
   display: none;
 }
 
+/* para mostar la lupa en modo resposive */
 .rigth-responsive {
   flex: 2;
   display: flex;
   justify-content: flex-end;
 }
 
+/* y esta para mostrar el buscardor */
 .rigth {
   display: none;
 }
 
-.rigth > input {
-  border: 1px solid red;
-  color: green;
+.search {
+  color: white;
 }
 
 /* ----------- FILTERS -----------*/
@@ -61,10 +63,9 @@ body {
 }
 
 .category {
-  flex: 3;
+  width: 200px;
   font-size: 14px;
   font-weight: bold;
-  padding: 5px 0px;
 }
 
 .category > select {
@@ -73,6 +74,12 @@ body {
   align-items: center;
   justify-content: center;
   width: 50%;
+  color: black;
+}
+.dropdown-content li > span {
+  color: #1d1d1d;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .filters-responsive {
@@ -131,29 +138,9 @@ body {
   /* filter: grayscale(0) invert(0.1); */
 }
 
-.products-section > div > p {
-  margin-top: 5px;
-  padding: 0px 4px;
-  font-weight: bold;
-  margin-top: 15px;
-  color: #8f8f8f;
-}
-
-.products-section > div > span {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin-bottom: 15px;
-  width: 100%;
-}
-
-.products-section > div > span:nth-child(3) {
-  margin-top: -5px;
-}
-
-.products-section > div > span > label {
+.products-section > div > label {
   color: #1d1d1d;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   width: 100%;
   text-align: left;
@@ -163,14 +150,15 @@ body {
 }
 
 .products-section > div > span > p:nth-child(1) {
-  color: #1d1d1d;
-  font-size: 14px;
+  color: #5f5f5f;
+  font-size: 12px;
 }
 .products-section > div > span > p:nth-child(2) {
   color: #008850;
   font-size: 12px;
   width: 100%;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 550px) {
@@ -182,6 +170,11 @@ body {
     padding: 10px 35px;
   }
 
+  .category {
+    width: 250px;
+  }
+
+  /* PRODUCTS */
   .products-section {
     flex-direction: row;
   }
@@ -200,9 +193,23 @@ body {
   .filters-responsive {
     display: none;
   }
-  .filters {
-    display: block;
-    border: 1px solid red;
+  .filters-section {
+    justify-content: space-between;
+  }
+
+  .category {
+    width: 250px;
+  }
+
+  .filters-web {
+    width: 250px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .filters-web > select {
+    width: 60%;
   }
 
   .products-section > div {

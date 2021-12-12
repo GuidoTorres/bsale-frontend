@@ -16,7 +16,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
 
-    <title>bsale</title>
+    <title>Bsale Test</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="./CSS/style.css" />
   </head>
   <body>
@@ -24,22 +26,30 @@
     <header class="header">
       <div class="wrapper">
         <div class="left">Bsale Test</div>
-        <div class="center">center</div>
+        <div class="center"></div>
         <div class="rigth-responsive">
           <i class="small material-icons">search</i>
         </div>
-
         <div class="rigth">
-          <input placeholder="search" id="search" type="text" class="search" />
+          <input placeholder="Buscar" id="search" type="text" class="search" />
         </div>
       </div>
     </header>
     <!-- FILTERS -->
     <section class="filters-section">
       <div class="category">
-        <select></select>
-        <!-- <label>Materialize Select</label> -->
+        <select class="select-category" id="select-category">
+          <option value="" disabled selected>Selecciona categoria</option>
+          <option value="1">Bebida energetica</option>
+          <option value="2">Pisco</option>
+          <option value="3">Ron</option>
+          <option value="4">Bebida</option>
+          <option value="5">Snack</option>
+          <option value="6">Cerveza</option>
+          <option value="7">Vodka</option>
+        </select>
       </div>
+      <!-- Div que solo se muestra en menos de 500px -->
       <div class="filters-responsive">
         <a
           class="dropdown-trigger waves-effect waves-light"
@@ -58,16 +68,15 @@
           <li><a href="#!">Descuento (menor a mayor)</a></li>
         </ul>
       </div>
-
+      <!-- Div que solo se muestra en mas de 500px -->
       <div class="filters-web">
-        <div class="input-field">
+        <div class="select-order">
           <select>
-            <option value="" disabled selected></option>
+            <option value="" disabled selected>Ordenar por</option>
             <option value="1">Precio (mayor a menor)</option>
             <option value="2">Precio (menor a mayor)</option>
             <option value="3">Descuento (mayor a menor)</option>
           </select>
-          <label>Ordenar por</label>
         </div>
       </div>
     </section>
