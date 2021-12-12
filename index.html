@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!--Import materialize.css-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+    <title>bsale</title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="wrapper">
+        <div class="left">Bsale Test</div>
+        <div class="center">center</div>
+        <div class="rigth-responsive">
+          <i class="small material-icons">search</i>
+        </div>
+
+        <div class="rigth">
+          <input placeholder="search" id="search" type="text" class="search" />
+        </div>
+      </div>
+    </header>
+    <!-- FILTERS -->
+    <section class="filters-section">
+      <div class="category">
+        <select></select>
+        <!-- <label>Materialize Select</label> -->
+      </div>
+      <div class="filters-responsive">
+        <a
+          class="dropdown-trigger waves-effect waves-light"
+          href="#"
+          data-target="dropdown1"
+          constrainWidth="false"
+          ><i class="tiny material-icons">menu</i></a
+        >
+
+        <ul id="dropdown1" class="dropdown-content" constrainWidth="false">
+          <li constrainWidth="false">
+            <a href="#!" constrainWidth="true">Precio (mayor a menor)</a>
+          </li>
+
+          <li><a href="#!">Precio (menor a mayor)</a></li>
+          <li><a href="#!">Descuento (menor a mayor)</a></li>
+        </ul>
+      </div>
+
+      <div class="filters-web">
+        <div class="input-field">
+          <select>
+            <option value="" disabled selected></option>
+            <option value="1">Precio (mayor a menor)</option>
+            <option value="2">Precio (menor a mayor)</option>
+            <option value="3">Descuento (mayor a menor)</option>
+          </select>
+          <label>Ordenar por</label>
+        </div>
+      </div>
+    </section>
+    <!-- PRODUCTS -->
+    <section class="products-section"></section>
+
+    <script src="./JS/index.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"
+    ></script>
+  </body>
+</html>
