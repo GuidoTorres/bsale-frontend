@@ -21,15 +21,18 @@ body {
 
 .wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center∫;
-  padding: 25px 30px;
+  padding: 15px 30px;
 }
 
 .left {
-  flex: 1;
+  width: 200px;
   font-size: 16px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .center {
@@ -37,16 +40,12 @@ body {
   display: none;
 }
 
-/* para mostar la lupa en modo resposive */
-.rigth-responsive {
-  flex: 2;
-  display: flex;
-  justify-content: flex-end;
-}
-
 /* y esta para mostrar el buscardor */
 .rigth {
-  display: none;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .search {
@@ -163,8 +162,10 @@ body {
 
 @media screen and (min-width: 550px) {
   .wrapper {
-    padding: 15px 35px;
+    justify-content: space-between;
+    padding: 10px 35px;
   }
+
 
   .filters-section {
     padding: 10px 35px;

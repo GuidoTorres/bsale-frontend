@@ -54,22 +54,50 @@ const renderAllData = (data) => {
   });
 };
 
-// Listener para la seleccion de categorias
-category.addEventListener("change", async (e) => {
-  console.log(e.target.value);
-  try {
-    const response = await fetch(
-      `https://bsale-test1.herokuapp.com/api/v1/products/${e.target.value}`
-    );
-    const data = await response.json();
+const filterData = async () => {
+  // Listener para la seleccion de categorias
+  const data1 = "";
+  category.addEventListener("change", async (e) => {
+    console.log(e.target.value);
+    try {
+      const response = await fetch(
+        `https://bsale-test1.herokuapp.com/api/v1/products/${e.target.value}`
+      );
+      const data = await response.json();
 
-    if (data) {
-      renderAllData(data);
+      if (data) {
+        renderAllData(data);
+      }
+    } catch (error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
-});
+  });
+
+  //Listener para los filtros
+  orderBy.addEventListener("change", async (e) => {
+    try {
+      const response = await fetch(
+        `https://bsale-test1.herokuapp.com/api/v1/products?${
+          e.target.value === "1"
+            ? "desc"
+            : e.target.value === "2"
+            ? "asc"
+            : e.target.value === "3"
+            ? "disc"
+            : ""
+        }=${e.target.value}`
+      );
+      console.log(response);
+      const data = await response.json();
+
+      if (data) {
+        renderAllData(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  });
+};
 
 // Listener para el buscador
 search.addEventListener("keyup", async (e) => {
@@ -79,31 +107,6 @@ search.addEventListener("keyup", async (e) => {
     const response = await fetch(
       `https://bsale-test1.herokuapp.com/api/v1/products/search?term=${e.target.value}`
     );
-    const data = await response.json();
-
-    if (data) {
-      renderAllData(data);
-    }
-  } catch (error) {
-    console.log(error);
-  }
-});
-
-//Listener para los filtros
-orderBy.addEventListener("change", async (e) => {
-  try {
-    const response = await fetch(
-      `https://bsale-test1.herokuapp.com/api/v1/products?${
-        e.target.value === "1"
-          ? "desc"
-          : e.target.value === "2"
-          ? "asc"
-          : e.target.value === "3"
-          ? "disc"
-          : ""
-      }=${e.target.value}`
-    );
-    console.log(response);
     const data = await response.json();
 
     if (data) {
