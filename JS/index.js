@@ -1,12 +1,12 @@
 let urlImg = "https://bsale-test1.herokuapp.com/api/v1/products";
 let urlCategory = "https://bsale-test1.herokuapp.com/api/v1/categories";
 
-const category = document.querySelector(".select-category");
-const search = document.querySelector(".search");
 const productSection = document.querySelector(".products-section");
-const orderBy = document.querySelector(".select-order");
+const search = document.querySelector(".search");
+const category = document.querySelector(".select-category");
+const orderBy = document.querySelector("#orderBy");
 
-// Para obtener los productos desde la api
+// Para obtener todos los productos desde la api
 
 const getProducts = async () => {
   try {
@@ -54,14 +54,19 @@ const renderAllData = (data) => {
   });
 };
 
-const filterData = async () => {
-  // Listener para la seleccion de categorias
-  const data1 = "";
-  category.addEventListener("change", async (e) => {
-    console.log(e.target.value);
+// event listener para poder usar el filtro de categoria y de ordenar por a la vez
+[category, orderBy].map((element, i) =>
+  element.addEventListener("change", async (e) => {
+    console.log(category.value);
+
+    const cat = category.value;
+    const ord = orderBy.value;
+
     try {
       const response = await fetch(
-        `https://bsale-test1.herokuapp.com/api/v1/products/${e.target.value}`
+        `https://bsale-test1.herokuapp.com/api/v1/products/${cat}?${
+          ord === "d" ? "desc" : ord === "a" ? "asc" : ord === "s" ? "disc" : ""
+        }=${ord}`
       );
       const data = await response.json();
 
@@ -71,38 +76,11 @@ const filterData = async () => {
     } catch (error) {
       console.log(error);
     }
-  });
+  })
+);
 
-  //Listener para los filtros
-  orderBy.addEventListener("change", async (e) => {
-    try {
-      const response = await fetch(
-        `https://bsale-test1.herokuapp.com/api/v1/products?${
-          e.target.value === "1"
-            ? "desc"
-            : e.target.value === "2"
-            ? "asc"
-            : e.target.value === "3"
-            ? "disc"
-            : ""
-        }=${e.target.value}`
-      );
-      console.log(response);
-      const data = await response.json();
-
-      if (data) {
-        renderAllData(data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  });
-};
-
-// Listener para el buscador
+//Event listener para el buscador
 search.addEventListener("keyup", async (e) => {
-  //peticion usando ajax
-
   try {
     const response = await fetch(
       `https://bsale-test1.herokuapp.com/api/v1/products/search?term=${e.target.value}`
@@ -117,7 +95,7 @@ search.addEventListener("keyup", async (e) => {
   }
 });
 
-// Listener para el select e input de materialize de materialize
+// Listener para que funcione el select y el input de materialize, es copiar y pegar de la documentacion
 document.addEventListener("DOMContentLoaded", function () {
   var elems = document.querySelectorAll(".dropdown-trigger");
   var sel = document.querySelectorAll("select");

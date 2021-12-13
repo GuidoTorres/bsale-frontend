@@ -4,10 +4,12 @@ html {
   padding: 0;
   margin: 0;
   border: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: #f0f0f0;
+  overflow-x: hidden;
 }
 /* ------------- HEADER -------------*/
 
@@ -40,7 +42,6 @@ body {
   display: none;
 }
 
-/* y esta para mostrar el buscardor */
 .rigth {
   width: 200px;
   display: flex;
@@ -137,6 +138,12 @@ body {
   /* filter: grayscale(0) invert(0.1); */
 }
 
+.products-section > div > img:hover {
+  transform: scale(1.02);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .products-section > div > label {
   color: #1d1d1d;
   font-size: 12px;
@@ -165,7 +172,6 @@ body {
     justify-content: space-between;
     padding: 10px 35px;
   }
-
 
   .filters-section {
     padding: 10px 35px;

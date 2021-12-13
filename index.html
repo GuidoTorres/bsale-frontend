@@ -20,6 +20,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="./CSS/style.css" />
+    
   </head>
   <body>
     <!-- HEADER -->
@@ -29,7 +30,12 @@
         <div class="center"></div>
 
         <div class="rigth">
-          <input placeholder="Buscar" id="search" type="text" class="search" />
+          <input
+            placeholder="Buscar producto"
+            id="search"
+            type="text"
+            class="search"
+          />
         </div>
       </div>
     </header>
@@ -47,33 +53,30 @@
           <option value="7">Vodka</option>
         </select>
       </div>
-      <!-- Icono de menu que se muestra en menos de 500px -->
       <div class="filters-responsive">
         <a
           class="dropdown-trigger waves-effect waves-light"
           href="#"
           data-target="dropdown1"
-          constrainWidth="false"
           ><i class="tiny material-icons">menu</i></a
         >
 
-        <ul id="dropdown1" class="dropdown-content" constrainWidth="false">
-          <li constrainWidth="false">
-            <a href="#!" constrainWidth="true">Precio (mayor a menor)</a>
+        <ul id="dropdown1" class="dropdown-content">
+          <li>
+            <a href="#!">Precio (mayor a menor)</a>
           </li>
 
           <li><a href="#!">Precio (menor a mayor)</a></li>
           <li><a href="#!">Descuento (menor a mayor)</a></li>
         </ul>
       </div>
-      <!-- Div que solo se muestra en mas de 500px -->
       <div class="filters-web">
-        <div class="select-order">
-          <select>
+        <div>
+          <select id="orderBy">
             <option value="" disabled selected>Ordenar por</option>
-            <option value="1">Precio (mayor a menor)</option>
-            <option value="2">Precio (menor a mayor)</option>
-            <option value="3">Descuento (mayor a menor)</option>
+            <option value="d">Precio (mayor a menor)</option>
+            <option value="a">Precio (menor a mayor)</option>
+            <option value="s">Descuento (mayor a menor)</option>
           </select>
         </div>
       </div>
