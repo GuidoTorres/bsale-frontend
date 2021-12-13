@@ -56,9 +56,10 @@ const renderAllData = (data) => {
 
 // Listener para la seleccion de categorias
 category.addEventListener("change", async (e) => {
+  console.log(e.target.value);
   try {
     const response = await fetch(
-      `http://localhost:3000/api/v1/products/${e.target.value}`
+      `https://bsale-test1.herokuapp.com/api/v1/products/${e.target.value}`
     );
     const data = await response.json();
 
