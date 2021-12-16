@@ -87,8 +87,6 @@ const SearchFunction = async (e) => {
   // aca valido que se ejecute la busqueda solamente si se presiona enter
   if (e.code === "Enter" && searchValue !== "") {
     try {
-      console.log("busqueda enter");
-
       const response = await fetch(
         `https://bsale-test1.herokuapp.com/api/v1/products/search?term=${searchValue}`
       );
@@ -108,11 +106,12 @@ const SearchFunction = async (e) => {
     try {
       console.log("busqueda y order");
       const response =
-        //este funciona si se seleccion una opcion de los filtros
+        //esta funcion se da cuando hay una busqueda y un filtro seleccionado
 
         orderValue !== ""
           ? await fetch(
               `https://bsale-test1.herokuapp.com/api/v1/products/search?term=${searchValue}&${
+                //dependiendo del valor de order value se cambia el parametro para cambiar el filtro a ascendente descendente
                 orderValue === "d"
                   ? "desc"
                   : orderValue === "a"
@@ -130,7 +129,8 @@ const SearchFunction = async (e) => {
                   : ""
               }`
             )
-          : //este es en responsive al hacer click en las opciones
+          : //esta funcion se da cuando hay una busqueda y un filtro del menu en resposive
+
             await fetch(
               `https://bsale-test1.herokuapp.com/api/v1/products/search?term=${searchValue}&${
                 menuValue === "Precio (mayor a menor)"
@@ -160,18 +160,19 @@ const SearchFunction = async (e) => {
   }
 };
 
+//funcion que junta el filtro de categoria con el de precios
 const orderFunction = async (e) => {
   const category = document.querySelector(".select-category");
   const orderBy = document.querySelector("#orderBy");
-  const searchValue = search.value;
 
   const orderValue = orderBy.value;
   const cat = category.value;
   const menuValue = e.target.innerHTML;
 
+  // si se seleccion una categoria se hace el try
   if (cat !== "Seleccione categoria") {
     try {
-      console.log("categoria + order");
+      //si se obtiene un valor desde el select se hace este fetch obteniendo categoria y orden
       const response =
         orderValue !== ""
           ? await fetch(
@@ -185,7 +186,9 @@ const orderFunction = async (e) => {
                   : ""
               }=${orderValue}`
             )
-          : await fetch(
+          : //si se obtiene un valor desde el menu en responsive se hace este fetch obteniendo categoria y orden
+
+            await fetch(
               `https://bsale-test1.herokuapp.com/api/v1/products/${cat}?${
                 menuValue === "Precio (mayor a menor)"
                   ? "desc"
