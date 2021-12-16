@@ -66,6 +66,9 @@ body {
   width: 200px;
   font-size: 14px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .category > select {
@@ -73,7 +76,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 100%;
   color: black;
 }
 .dropdown-content li > span {
@@ -86,7 +89,7 @@ body {
   flex: 1;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .filters-responsive > a {
@@ -111,6 +114,17 @@ body {
   font-size: 14px;
 }
 .filters-web {
+  display: none;
+}
+
+.dropdown-toggle {
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-toggle::after {
   display: none;
 }
 
