@@ -73,12 +73,13 @@ const renderCategories = (data) => {
   });
 };
 
-//En esta funcion combino la busqueda y el filtro por precio
+//Funcion para realizar solamente la busqueda
 const searchProducts = async (e) => {
   const search = document.querySelector(".search");
   const category = document.querySelector(".select-category");
 
   const searchValue = search.value;
+  console.log("search products");
 
   if (searchValue !== "" || (null && e.code === "Enter")) {
     category.selectedIndex = 0;
@@ -112,6 +113,7 @@ const categoriesAndFilters = async (e) => {
   const orderValue = orderBy.value;
   const cat = category.value;
   const menuValue = e.target.innerHTML;
+  console.log("categories and filters");
 
   if (cat > 0) {
     search.value = "";
@@ -165,7 +167,7 @@ const categoriesAndFilters = async (e) => {
     }
   }
 };
-
+// function que junta la busqueda y los filtros de precios
 const searchAndFilters = async (e) => {
   const orderBy = document.querySelector("#orderBy");
   const search = document.querySelector(".search");
@@ -174,9 +176,9 @@ const searchAndFilters = async (e) => {
   const orderValue = orderBy.value;
   const menuValue = e.target.innerHTML;
 
-  if (searchValue !== "") {
-    orderBy.selectedIndex = 0;
-  }
+  orderBy.selectedIndex = 0;
+  console.log("search and filters");
+
 
   if (searchValue !== "" && orderValue !== "") {
     try {
@@ -244,12 +246,14 @@ const orderProducts = async (e) => {
   const cat = category.value;
   const orderValue = orderBy.value;
   const menuValue = e.target.innerHTML;
-
+  
+  console.log("order Products");
+  
   if (
     orderValue !== "" &&
     cat === "Seleccione categoria" &&
     searchValue === ""
-  ) {
+    ) {
     try {
       const response = await fetch(
         `https://bsale-test1.herokuapp.com/api/v1/products?${
