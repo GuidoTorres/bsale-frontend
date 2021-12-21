@@ -50,7 +50,7 @@ body {
 }
 
 .search {
-  color: white;
+  color: black;
 }
 
 /* ----------- FILTERS -----------*/
@@ -164,6 +164,8 @@ body {
   font-weight: bold;
   width: 100%;
   text-align: left;
+  margin-top: 10px;
+
 }
 .products-section > div > span > p {
   width: 100%;
@@ -172,13 +174,14 @@ body {
 .products-section > div > span > p:nth-child(1) {
   color: #5f5f5f;
   font-size: 12px;
+  height: 0px;
 }
 .products-section > div > span > p:nth-child(2) {
   color: #008850;
   font-size: 12px;
   width: 100%;
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 @media screen and (min-width: 550px) {
