@@ -24,7 +24,7 @@ body {
 .wrapper {
   display: flex;
   justify-content: space-around;
-  align-items: center∫;
+  align-items: center;
   padding: 15px 30px;
 }
 
