@@ -1,6 +1,7 @@
 # bsale-frontend
 Frontend para la prueba tecnica de Bsale
   Hecho con HTML, CSS y JS
+Solo muestra los productos y permite el uso de los filtros y la busqueda.
 
  ## Descarga 
  
